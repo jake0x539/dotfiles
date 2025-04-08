@@ -9,17 +9,17 @@ local act = wezterm.action
 
 -- check if running on windows; if yes, launch into pwsh by default
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_prog = { "pwsh.exe" }
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
 	config.max_fps = 180
 end
 
 -- set font
-config.font = wezterm.font("Cascadia Mono")
+config.font = wezterm.font("CommitMono Nerd Font")
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- disable ligatures
 config.font_size = 14
 -- set color scheme (nightly required)
 config.color_scheme = "Everforest Dark Hard (Gogh)"
-config.window_background_opacity = 0.97
+config.window_background_opacity = 0.95
 
 -- blinking bar cursor
 config.default_cursor_style = "BlinkingBar"
@@ -29,6 +29,9 @@ config.cursor_blink_ease_out = "Constant"
 -- window padding (usually I keep it very low)
 local padding_amt = 4
 config.window_padding = { left = padding_amt, right = padding_amt, top = padding_amt, bottom = padding_amt }
+-- set default terminal size
+config.initial_cols = 160
+config.initial_rows = 48
 
 -- configure tab bar
 config.hide_tab_bar_if_only_one_tab = true -- I don't want to see it unless I need to
